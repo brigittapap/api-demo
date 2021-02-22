@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
+import java.time.LocalDate;
 
 
 @Entity
@@ -17,13 +17,13 @@ public class Note {
 
     private String note;
 
-    private Date datecreated;
+    private LocalDate datecreated;
 
 
     public Note() {
     }
 
-    public Note(Long id, String title, String note, Date datecreated) {
+    public Note(Long id, String title, String note, LocalDate datecreated) {
         this.id = id;
         this.title = title;
         this.note = note;
