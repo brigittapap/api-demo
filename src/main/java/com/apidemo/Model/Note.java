@@ -1,9 +1,6 @@
 package com.apidemo.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 
@@ -19,15 +16,19 @@ public class Note {
 
     private LocalDate datecreated;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     public Note() {
     }
 
-    public Note(Long id, String title, String note, LocalDate datecreated) {
+    public Note(Long id, String title, String note, LocalDate datecreated, User user) {
         this.id = id;
         this.title = title;
         this.note = note;
         this.datecreated = datecreated;
+        this.user = user;
     }
 
     public Long getId() {
@@ -61,6 +62,7 @@ public class Note {
                 ", title='" + title + '\'' +
                 ", note='" + note + '\'' +
                 ", datecreated=" + datecreated +
+                ", user=" + user +
                 '}';
     }
 }

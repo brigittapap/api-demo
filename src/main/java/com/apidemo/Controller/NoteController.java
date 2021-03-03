@@ -20,7 +20,7 @@ public class NoteController {
 
     @PostMapping("/addnote")
     public void createNote(@RequestBody Note note) {
-        System.out.println("New note:" + note.toString());
+        System.out.println(note);
         noteService.addnewNote(note);
     }
 
@@ -29,9 +29,14 @@ public class NoteController {
         noteService.deleteNote(id);
     }
 
-    @PutMapping("editnote/{id}")
+    @PutMapping("/editnote/{id}")
     public void editNote(@RequestBody Note note, @PathVariable Long id) {
         noteService.editNote(id, note);
+    }
+
+    @GetMapping("/notesbyuser/{id}")
+    public List<Note> getNotesbyUser(@PathVariable Long id) {
+        return noteService.getNotesbyUser(id);
     }
 
 }

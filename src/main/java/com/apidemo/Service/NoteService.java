@@ -35,5 +35,9 @@ public class NoteService {
         notesRepository.save(note);
     }
 
+    public List<Note> getNotesbyUser(Long id) {
+        return notesRepository.getNotesbyUser(id);
+    }
+
 
 }
