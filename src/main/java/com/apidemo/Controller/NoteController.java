@@ -13,28 +13,27 @@ public class NoteController {
     @Autowired
     private NoteService noteService;
 
-    @GetMapping("/allnotes")
+    @GetMapping("/notes")
     public List<Note> getAllNotes() {
         return noteService.getAllNotes();
     }
 
-    @PostMapping("/addnote")
+    @PostMapping("/note")
     public void createNote(@RequestBody Note note) {
-        System.out.println(note);
         noteService.addnewNote(note);
     }
 
-    @DeleteMapping("/deletenote/{id}")
+    @DeleteMapping("/note/{id}")
     public void deleteNote(@PathVariable Long id) {
         noteService.deleteNote(id);
     }
 
-    @PutMapping("/editnote/{id}")
+    @PutMapping("/note/{id}")
     public void editNote(@RequestBody Note note, @PathVariable Long id) {
         noteService.editNote(id, note);
     }
 
-    @GetMapping("/notesbyuser/{id}")
+    @GetMapping("/notes/{id}")
     public List<Note> getNotesbyUser(@PathVariable Long id) {
         return noteService.getNotesbyUser(id);
     }
